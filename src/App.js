@@ -1,32 +1,27 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './App.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      rows: 10,
-      cols: 10,
-      grid: [],
-    };
-    
-  this.generateGrid();
-}
-
-  generateGrid = () => {
+export default class App extends Component {
+  state = {
+    height: 10,
+    width: 10,
+    grid: [],
+    score: 0,
+  };
+   
+  createGrid() {
     const grid = [];
     for ( let row = 0; row < this.state.rows; row++) {
-      for ( let col = 0; col < this.state.cols; col++) {
+        for ( let col = 0; col < this.state.cols; col++) {
         grid.push({
           row: row,
           col: col
         });
-      console.log(grid);
       this.setState({grid: grid});
       }
     }
-    console.log(this.state);
   }
+
 
   render() {
 
@@ -51,5 +46,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
