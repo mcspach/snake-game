@@ -9,21 +9,24 @@ class App extends Component {
       cols: 10,
       grid: [],
     };
-  
-
-  const grid = [];
-  for ( let col = 0; col < this.state.cols; col++) {
-    for ( let row = 0; row < this.state.rows; row++) {
-      grid.push({
-        row,
-        col
-      })
-    }
-  }
-  this.setState({grid: grid});
+    
+  this.generateGrid();
 }
 
-
+  generateGrid = () => {
+    const grid = [];
+    for ( let row = 0; row < this.state.rows; row++) {
+      for ( let col = 0; col < this.state.cols; col++) {
+        grid.push({
+          row: row,
+          col: col
+        });
+      console.log(grid);
+      this.setState({grid: grid});
+      }
+    }
+    console.log(this.state);
+  }
 
   render() {
 
